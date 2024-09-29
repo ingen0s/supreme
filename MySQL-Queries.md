@@ -93,3 +93,30 @@
 
 ![Result Screenshot](https://github.com/ingen0s/supreme/blob/main/retrieve-list-of-products.png)
 
+## Cleaner Query
+```SELECT ID, post_title, post_status, post_date, post_name FROM sup_posts WHERE post_type = 'product';```
+
+```
++----+--------------------+-------------+---------------------+--------------------+
+| ID | post_title         | post_status | post_date           | post_name          |
++----+--------------------+-------------+---------------------+--------------------+
+| 13 | V-Neck T-Shirt     | publish     | 2024-09-29 07:18:05 | v-neck-t-shirt     |
+| 14 | Hoodie             | publish     | 2024-09-29 07:18:06 | hoodie             |
+| 15 | Hoodie with Logo   | publish     | 2024-09-29 07:18:06 | hoodie-with-logo   |
+| 16 | T-Shirt            | publish     | 2024-09-29 07:18:06 | t-shirt            |
+| 17 | Beanie             | publish     | 2024-09-29 07:18:06 | beanie             |
+| 18 | Belt               | publish     | 2024-09-29 07:18:06 | belt               |
+| 19 | Cap                | publish     | 2024-09-29 07:18:06 | cap                |
+| 20 | Sunglasses         | publish     | 2024-09-29 07:18:06 | sunglasses         |
+| 21 | Hoodie with Pocket | publish     | 2024-09-29 07:18:06 | hoodie-with-pocket |
+| 22 | Hoodie with Zipper | publish     | 2024-09-29 07:18:06 | hoodie-with-zipper |
+| 23 | Long Sleeve Tee    | publish     | 2024-09-29 07:18:06 | long-sleeve-tee    |
+| 24 | Polo               | publish     | 2024-09-29 07:18:06 | polo               |
+| 25 | Album              | publish     | 2024-09-29 07:18:06 | album              |
+| 26 | Single             | publish     | 2024-09-29 07:18:06 | single             |
+| 33 | T-Shirt with Logo  | publish     | 2024-09-29 07:18:07 | t-shirt-with-logo  |
+| 34 | Beanie with Logo   | publish     | 2024-09-29 07:18:07 | beanie-with-logo   |
+| 35 | Logo Collection    | publish     | 2024-09-29 07:18:07 | logo-collection    |
+| 36 | WordPress Pennant  | publish     | 2024-09-29 07:18:07 | wordpress-pennant  |
++----+--------------------+-------------+---------------------+--------------------+
+```
