@@ -91,7 +91,7 @@
 
 ### Result Screenshot
 
-![Result Screenshot](https://github.com/ingen0s/supreme/blob/main/retrieve-list-of-products.png)
+![Result Screenshot](https://github.com/ingen0s/supreme/blob/main/mysql_query_md/retrieve-list-of-products.png)
 
 ## Cleaner Query
 ```SELECT ID, post_title, post_status, post_date, post_name FROM sup_posts WHERE post_type = 'product';```
