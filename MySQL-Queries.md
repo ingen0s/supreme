@@ -91,4 +91,5 @@
 
 ### Result Screenshot
 
-![6b8ff4671c6f52da565c8479496928cd.png](:/cfc55c69afd84554bd889c07af3492bf)
+![Result Screenshot](https://github.com/ingen0s/supreme/blob/main/retrieve-list-of-products.png)
+
