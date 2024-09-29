@@ -5,29 +5,36 @@
 ```
 SELECT 
     wo.id AS order_id, 
-    wo.customer_id, 
-    wo.billing_email AS customer_email, 
+    IF(wo.customer_id != 0, wo.customer_id, 'Guest') AS customer_id, 
+    cl.user_id, 
+    cl.username,
     cl.first_name, 
     cl.last_name, 
-    cl.city, 
-    cl.state, 
+    wo.billing_email AS customer_email, 
     cl.country, 
     cl.postcode, 
+    cl.city, 
+    cl.state, 
     wo.status, 
     wo.total_amount, 
     wo.date_created_gmt
 FROM sup_wc_orders wo
-JOIN sup_wc_customer_lookup cl ON wo.customer_id = cl.customer_id
+LEFT JOIN sup_wc_customer_lookup cl ON wo.billing_email = cl.email
 WHERE wo.billing_email IS NOT NULL;
+
+
 ```
 
 ## Result
 
 ```
-+----------+-------------+-------------------+------------+-----------+--------------------------+-------+---------+----------+---------------+--------------+---------------------+
-| order_id | customer_id | customer_email    | first_name | last_name | city                     | state | country | postcode | status        | total_amount | date_created_gmt    |
-+----------+-------------+-------------------+------------+-----------+--------------------------+-------+---------+----------+---------------+--------------+---------------------+
-|       60 |           1 | igor@your****.com |            |           | Toronto, Ontario, Canada | ON    | CA      | M6C 2T6  | wc-processing |  36.00000000 | 2024-09-29 11:19:29 |
-+----------+-------------+-------------------+------------+-----------+--------------------------+-------+---------+----------+---------------+--------------+---------------------+
-1 row in set (0.00 sec)
++----------+-------------+---------+---------------+------------+-----------+----------------------------+---------+----------+--------------------------+-------+---------------+--------------+---------------------+
+| order_id | customer_id | user_id | username      | first_name | last_name | customer_email             | country | postcode | city
+        | state | status        | total_amount | date_created_gmt    |
++----------+-------------+---------+---------------+------------+-----------+----------------------------+---------+----------+--------------------------+-------+---------------+--------------+---------------------+
+|       60 | 1           |       1 | supreme_admin |            |           | igor@your****.com          | CA      | M6C 2T6  | Toronto, Ontario, Canada | ON    | wc-processing |  36.00000000 | 2024-09-29 11:19:29 |
+|       61 | Guest       |    NULL |               | George     | Volomok   | igor+woo+test@your****.com | CA      | M6S 3Z3  | Toronto
+        | ON    | wc-processing | 108.00000000 | 2024-09-29 14:04:39 |
++----------+-------------+---------+---------------+------------+-----------+----------------------------+---------+----------+--------------------------+-------+---------------+--------------+---------------------+
+2 rows in set (0.00 sec)
 ```
