@@ -1,4 +1,4 @@
-#
+# Retrieve the total number of products.
 
 ## Query
 ```SELECT COUNT(*) AS total_products FROM sup_posts WHERE post_type = 'product';```
